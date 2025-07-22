@@ -86,55 +86,6 @@ function doRedirect() {
     window.location.replace(searchUrl);
 }
 
-document.querySelector("#set-default").addEventListener("click", () => {
-    let newBang = prompt("Please input new default bang", LS_DEFAULT_BANG);
-    if (newBang == null || newBang == "") {
-        alert("No bang was set");
-        return;
-    }
-    
-    const foundBang = bangs.find((b) => b.b === newBang);
-
-    if (foundBang == undefined) {
-        alert("Unknown bang");
-        return;
-    }
-
-    if (confirm(`Found bang for '${foundBang.d}'`)) {
-        localStorage.setItem("default-bang", newBang);
-        alert("Set new bang to " + newBang);
-    } else {
-        alert("Cancelled");
-        return;
-    }
-});
-
-function findBang(a) {
-    let d = "";
-    console.log("---------------------------------------------------");
-    console.log("Match:");
-    for (let i of bangs) if (i.b == a) {
-        console.log(i);
-        d = i.d;
-        break;
-    }
-    console.log("Similar bangs:");
-    for (let i of bangs) if (i.d == d) {
-        console.log(i);
-    }
-    console.log("---------------------------------------------------");
-}
-
-function filterBangsByCategory(category) {
-    let ret = [];
-    for (let i of bangs) if (i.c == category) ret.push({
-        d: i.d,
-        b: i.t,
-        u: i.u
-    });
-    console.log(ret);
-}
-
 doRedirect();
 
 // const LS_DEFAULT_BANG = localStorage.getItem("default-bang") ?? "g";

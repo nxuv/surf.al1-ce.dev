@@ -1,58 +1,111 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        media="print" onload="this.media='all'" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surf</title>
-    <meta name="description" content="A better default search engine (with bangs!)" />
-    <link rel="stylesheet" href="/index.css" />
-    <link rel="icon" href="favicon.png">
-</head>
+	<head>
+		<meta charset="UTF-8"/>
+		<script src="js/bangs/enternainment.js"></script>
+		<script src="js/bangs/multimedia.js"></script>
+		<script src="js/bangs/news.js"></script>
+		<script src="js/bangs/services.js"></script>
+		<script src="js/bangs/research.js"></script>
+		<script src="js/bangs/shopping.js"></script>
+		<script src="js/bangs/tech.js"></script>
+		<script src="js/bangs/custom.js"></script>
+		<script src="/index.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Surf</title>
+		<meta name="description" content="A better default search engine (with bangs!)"/>
+		<link rel="stylesheet" href="/index.css"/>
+		<link rel="icon" href="favicon.png">
+	</head>
 
-<body style="background-color: transparent">
-    <div id="app">
-        <div
-            style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-            <div class="content-container">
-                <h1>Surf</h1>
-                <p>
-                    DuckDuckGo's bang redirects are too slow.
-                    Add the following URL as a custom search engine to your browser.
-                    Enables
-                    <a href="https://duckduckgo.com/bang.html" target="_blank">some of DuckDuckGo's bangs.</a>
-                </p>
-                <div class="url-container">
-                    <input type="text" class="url-input" value="https://surf.al1-ce.dev?q=%s" readonly />
-                    <button class="copy-button">
-                        <img src="/clipboard.svg" alt="Copy" />
-                    </button>
-                </div>
-            </div>
-            <footer class="footer">
-                <a href="https://al1-ce.dev" target="_blank" title="Me">back</a>
-                •
-                <a href="https://github.com/t3dotgg/unduck" target="_blank" title="Original website">unduck</a>
-                •
-                <a href="" id="set-default" title="Set default bang">default</a>
-            </footer>
-        </div>
-    </div>
-    <script src="js/bangs/enternainment.js"></script>
-    <script src="js/bangs/multimedia.js"></script>
-    <script src="js/bangs/news.js"></script>
-    <script src="js/bangs/services.js"></script>
-    <script src="js/bangs/research.js"></script>
-    <script src="js/bangs/shopping.js"></script>
-    <script src="js/bangs/tech.js"></script>
-    <script src="js/bangs/custom.js"></script>
-    <script src="/index.js"></script>
-</body>
+	<body style="background-color: transparent">
+		<div id="app">
+			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+				<div class="content-container">
+					<h1>Surf</h1>
+					<p>
+						DuckDuckGo's bang redirects are too slow.
+						                    Add the following URL as a custom search engine to your browser.
+						                    Enables
+						<a href="https://duckduckgo.com/bang.html" target="_blank">some of DuckDuckGo's bangs.</a>
+					</p>
+					<div class="url-container">
+						<input type="text" class="url-input" value="https://surf.al1-ce.dev?q=%s" readonly/>
+						<button class="copy-button">
+							<img src="/clipboard.svg" alt="Copy"/>
+						</button>
+					</div>
+				</div>
+				<footer class="footer">
+					<a href="https://al1-ce.dev" target="_blank" title="Me">back</a>
+					•
+					<a href="https://github.com/t3dotgg/unduck" target="_blank" title="Original website">unduck</a>
+					•
+					<a href="" id="set-default" title="Set default bang">default</a>
+				</footer>
+			</div>
+		</div>
+		<script>
+			document.querySelector("#set-default").addEventListener("click", () => {
+				let newBang = prompt("Please input new default bang", LS_DEFAULT_BANG);
+				if (newBang == null || newBang == "") {
+					alert("No bang was set");
+					return;
+				}
+
+				const foundBang = bangs.find((b) => b.b === newBang);
+
+				if (foundBang == undefined) {
+					alert("Unknown bang");
+					return;
+				}
+
+				if (confirm(`Found bang for '${
+					foundBang.d
+				}'`)) {
+					localStorage.setItem("default-bang", newBang);
+					alert("Set new bang to " + newBang);
+				} else {
+					alert("Cancelled");
+					return;
+				}
+			});
+
+			function findBang(a) {
+				let d = "";
+				console.log("---------------------------------------------------");
+				console.log("Match:");
+				for (let i of bangs) 
+					if (i.b == a) {
+						console.log(i);
+						d = i.d;
+						break;
+					}
+				
+				console.log("Similar bangs:");
+				for (let i of bangs) 
+					if (i.d == d) {
+						console.log(i);
+					}
+				
+				console.log("---------------------------------------------------");
+			}
+
+			function filterBangsByCategory(category) {
+				let ret = [];
+				for (let i of bangs) 
+					if (i.c == category) 
+						ret.push({d: i.d, b: i.t, u: i.u});
+					
+				
+				console.log(ret);
+			}
+		</script>
+	</body>
 
 </html>
