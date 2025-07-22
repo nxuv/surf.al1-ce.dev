@@ -1,17 +1,4 @@
-{
-    const copyButton = app.querySelector(".copy-button");
-    const copyIcon = copyButton.querySelector("img");
-    const urlInput = app.querySelector(".url-input");
 
-    copyButton.addEventListener("click", async () => {
-        await navigator.clipboard.writeText(urlInput.value);
-        copyIcon.src = "/clipboard-check.svg";
-
-        setTimeout(() => {
-            copyIcon.src = "/clipboard.svg";
-        }, 2000);
-    });
-}
 
 /* BANG FORMAT
 
