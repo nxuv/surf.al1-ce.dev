@@ -93,7 +93,7 @@ document.querySelector("#set-default").addEventListener("click", () => {
         return;
     }
     
-    const foundBang = bangs.find((b) => b.b === LS_DEFAULT_BANG);
+    const foundBang = bangs.find((b) => b.b === newBang);
 
     if (foundBang == undefined) {
         alert("Unknown bang");
