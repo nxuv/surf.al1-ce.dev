@@ -21,5 +21,10 @@ bangs = [].concat([
         d: "www.discordapp.com/channels/@me",
         b: "cord",
         u: "https://www.discordapp.com/channels/@me"
-    }
+    },
+    {
+        d: "google.com",
+        b: "g",
+        u: "https://google.com/search/?udm=14&q={{{s}}}",
+    },
 ], bangs);
