@@ -32,7 +32,7 @@ bangs = [].concat([
 ], bangs);
 */
 
-const LS_DEFAULT_BANG = "g"; // localStorage.getItem("default-bang") ?? "g";
+const LS_DEFAULT_BANG = "ddg"; // localStorage.getItem("default-bang") ?? "g";
 const defaultBang = bangs.find((b) => b.b === LS_DEFAULT_BANG);
 
 function getBangredirectUrl(req) {
