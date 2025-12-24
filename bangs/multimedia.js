@@ -4577,3 +4577,7 @@ bangs = [].concat([
         "u": "https://music.yandex.com/search?text={{{s}}}"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

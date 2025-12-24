@@ -23,3 +23,7 @@ bangs = [].concat([
         u: "https://www.discordapp.com/channels/@me"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

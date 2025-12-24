@@ -14482,3 +14482,7 @@ bangs = [].concat([
         "u": "https://ru.wiktionary.org/w/index.php?search={{{s}}}&ns0=1"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

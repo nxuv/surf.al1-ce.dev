@@ -4317,3 +4317,7 @@ bangs = [].concat([
         "u": "http://astronet.ge/?s={{{s}}}"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

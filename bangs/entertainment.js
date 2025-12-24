@@ -10387,3 +10387,7 @@ bangs = [].concat([
         "u": "http://www.zerozero.pt/search.php?op=all&inputString={{{s}}}"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

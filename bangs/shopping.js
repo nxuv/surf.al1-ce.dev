@@ -9927,3 +9927,7 @@ bangs = [].concat([
         "u": "http://www.labirint.ru/search/{{{s}}}"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

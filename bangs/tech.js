@@ -11447,3 +11447,7 @@ bangs = [].concat([
         "u": "http://nayiri.com/search?l=hy_LB&dt=HY_HY&r=0&query={{{s}}}"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};

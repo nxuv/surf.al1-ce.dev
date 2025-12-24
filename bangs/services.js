@@ -10767,3 +10767,7 @@ bangs = [].concat([
         "u": "https://yandex.ru/maps/?text={{{s}}}"
     }
 ], bangs);
+
+module.exports = {
+    bangs
+};
