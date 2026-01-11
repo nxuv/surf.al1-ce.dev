@@ -7,7 +7,7 @@ const bang = require("./bang.js");
 
 app.use(express.json({limit: '50mb'}));
 
-app.all("*", (req, res) => {
+app.all("*splat", (req, res) => {
     console.log(req.path);
     console.log(req.query);
     if (req.path == "/" && !req.query.q) return res.sendFile(path.join(__dirname, "public/index.html"));
